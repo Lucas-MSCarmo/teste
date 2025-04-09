@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+        }
+        .swiper-slide {
+            opacity: 0.5;
+            transition: opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide-active {
+            opacity: 1;
+        }
+        .image-container {
+            width: 150px;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #3b82f6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: none;
+        }
+        .back-to-top:hover {
+            background: #2563eb;
+        }
+        .swiper-button-prev, .swiper-button-next {
+            top: 90%;
+            transform: translateY(-50%);
+        }
+        .swiper-button-prev {
+            left: 10px;
+        }
+        .swiper-button-next {
+            right: 10px;
+        }
+        .gallery-button-prev, .gallery-button-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            display: none;
+        }
+        .gallery-button-prev {
+            left: 10px;
+        }
+        .gallery-button-next {
+            right: 10px;
+        }
+        .project-gallery.active .gallery-button-prev,
+        .project-gallery.active .gallery-button-next {
+            display: block;
+        }
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        @media (min-width: 768px) {
+            .project-card {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <!-- Cabeçalho -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center items-center py-6 shadow-lg">
+        <h1 class="text-3xl font-bold">Meus Projetos</h1>
+    </header>
+
+    <!-- Seção Sobre Mim -->
+    <section class="container mx-auto mt-8 px-4">
+        <div class="flex flex-col md:flex-row items-center bg-white p-6 rounded-lg shadow-md">
+            <!-- Foto -->
+            <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-lg">
+                <img src="./images/eu/mesmo.jfif" alt="Minha Foto" class="w-full h-full object-cover">
+            </div>
+            <!-- Texto Sobre Mim -->
+            <div class="md:ml-6 mt-4 md:mt-0">
+                <h2 class="text-2xl font-bold">Sobre Mim</h2>
+                <p class="text-sm text-gray-600 mt-2">
+                    Meu nome é Lucas Martins e sou estudante da Fatec, onde
+                    curso Desenvolvimento de Software Multiplataforma, além
+                    de estar matriculado na Etec no curso de Desenvolvimento
+                    de Sistemas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrossel de Projetos -->
+    <main class="flex-1 container mx-auto mt-8 px-4">
+        <div class="swiper-container projects-carousel h-96">
+            <div class="swiper-wrapper" id="projects-container">
+                <!-- Projetos serão inseridos aqui via JavaScript -->
+            </div>
+            <div class="swiper-button-prev text-black"></div>
+            <div class="swiper-button-next text-black"></div>
+        </div>
+    </main>
+
+    <!-- Container para as galerias de projetos -->
+    <div id="projects-galleries" class="container mx-auto px-4">
+        <!-- Galerias serão inseridas aqui via JavaScript -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-6 mt-8">
+        <p>&copy; 2023 Lucas Martins<br>Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão de Voltar ao Topo -->
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+
+    <!-- Modal para expandir a imagem -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <img id="expandedImage" src alt="Imagem expandida">
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Variáveis globais para os carrosseis
+        let projectsCarousel;
+        const gallerySwipers = {};
+
+        // Função principal que carrega os dados e inicializa a página
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('dados.json')
+                .then(response => response.json())
+                .then(data => {
+                    const projectsContainer = document.getElementById('projects-container');
+                    const galleriesContainer = document.getElementById('projects-galleries');
+                    
+                    // Filtra apenas os projetos com nome (remove os vazios)
+                    const validProjects = data.filter(project => project.nome && project.nome.trim() !== '');
+                    
+                    // Cria os slides do carrossel principal
+                    validProjects.forEach((project, index) => {
+                        // Cria o slide no carrossel principal
+                        const slideDiv = document.createElement('div');
+                        slideDiv.className = 'swiper-slide';
+                        slideDiv.innerHTML = `
+                            <div class="project-card">
+                                <div class="image-container">
+                                    <img src="./images/projeto${index + 1}/${project.imagem}.png" alt="Projeto ${index + 1}" onclick="expandImage(this)">
+                                </div>
+                                <div class="md:ml-6 mt-4 md:mt-0 flex-1">
+                                    <h5 class="text-xl font-semibold">Aplicativo de ${project.nome}</h5>
+                                    <p class="text-sm text-gray-600 mt-2 line-clamp-4">${project.descricao}</p>
+                                    <div class="flex gap-2 mt-4">
+                                        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300" onclick="openProject('project${index + 1}')">Ver Projeto</button>
+                                        <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300" onclick="window.open('${project.link}', '_blank')">Ver Código no Expo.dev</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        projectsContainer.appendChild(slideDiv);
+                        
+                        // Cria a galeria para este projeto
+                        const galleryDiv = document.createElement('div');
+                        galleryDiv.id = `project${index + 1}`;
+                        galleryDiv.className = 'project-gallery mt-8 hidden';
+                        galleryDiv.innerHTML = `
+                            <div class="flex justify-between items-center mb-6">
+                                <h2 class="text-2xl font-bold">Aplicativo de ${project.nome}</h2>
+                                <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300" onclick="closeProject()">Fechar Projeto</button>
+                            </div>
+                            <div class="swiper-container gallery-carousel max-h-96 overflow-hidden relative" id="gallery-carousel-${index + 1}">
+                                <div class="swiper-wrapper" id="gallery-images-${index + 1}">
+                                    <!-- Imagens serão inseridas via JavaScript -->
+                                </div>
+                                <div class="gallery-button-prev">&#10094;</div>
+                                <div class="gallery-button-next">&#10095;</div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 justify-items-center">
+                                <div>
+                                    <h3 class="text-lg font-semibold">Técnicas e Conceitos Aprendidos</h3>
+                                    <ul class="list-disc list-inside text-gray-700 mt-2" id="tecnicas-${index + 1}">
+                                        <!-- Técnicas serão inseridas via JavaScript -->
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold">Componentes Utilizados</h3>
+                                    <ul class="list-disc list-inside text-gray-700 mt-2" id="componentes-${index + 1}">
+                                        <!-- Componentes serão inseridas via JavaScript -->
+                                    </ul>
+                                </div>
+                            </div>
+                        `;
+                        galleriesContainer.appendChild(galleryDiv);
+                        
+                        // Preenche as imagens da galeria
+                        const galleryImagesContainer = document.getElementById(`gallery-images-${index + 1}`);
+                        project.imagens.forEach(image => {
+                            const slide = document.createElement('div');
+                            slide.className = 'swiper-slide';
+                            slide.innerHTML = `
+                                <div class="image-container">
+                                    <img src="./images/projeto${index + 1}/${image}.png" alt="${image}" onclick="expandImage(this)">
+                                </div>
+                            `;
+                            galleryImagesContainer.appendChild(slide);
+                        });
+                        
+                        // Preenche as técnicas
+                        const tecnicasContainer = document.getElementById(`tecnicas-${index + 1}`);
+                        project.tecnicas.forEach(tecnica => {
+                            if (tecnica.trim() !== '') {
+                                const li = document.createElement('li');
+                                li.textContent = tecnica;
+                                tecnicasContainer.appendChild(li);
+                            }
+                        });
+                        
+                        // Preenche os componentes
+                        const componentesContainer = document.getElementById(`componentes-${index + 1}`);
+                        project.componentes.forEach(componente => {
+                            if (componente.trim() !== '') {
+                                const li = document.createElement('li');
+                                li.textContent = componente;
+                                componentesContainer.appendChild(li);
+                            }
+                        });
+                    });
+                    
+                    // Inicializa o carrossel principal
+                    projectsCarousel = new Swiper('.projects-carousel', {
+                        loop: true,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        centeredSlides: true,
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar os dados:', error);
+                    document.getElementById('projects-container').innerHTML = 
+                        '<p class="text-center py-10">Erro ao carregar os projetos. Por favor, tente novamente mais tarde.</p>';
+                });
+        });
+
+        // Função para inicializar um carrossel de galeria
+        function initGallerySwiper(galleryId) {
+            gallerySwipers[galleryId] = new Swiper(`#${galleryId} .gallery-carousel`, {
+                loop: true,
+                navigation: {
+                    nextEl: `#${galleryId} .gallery-button-next`,
+                    prevEl: `#${galleryId} .gallery-button-prev`,
+                },
+                slidesPerView: 1,
+                spaceBetween: 10,
+                centeredSlides: true,
+                breakpoints: {
+                    640: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 },
+                },
+            });
+        }
+
+        // Função para abrir/fechar projetos
+        function openProject(projectId) {
+            document.querySelectorAll('.project-gallery').forEach(gallery => {
+                gallery.classList.add('hidden');
+                gallery.classList.remove('active');
+            });
+            
+            const projectGallery = document.getElementById(projectId);
+            projectGallery.classList.remove('hidden');
+            projectGallery.classList.add('active');
+            
+            // Inicializa o carrossel da galeria se não foi inicializado ainda
+            if (!gallerySwipers[projectId]) {
+                initGallerySwiper(projectId);
+            }
+            
+            // Rola a página até a galeria
+            projectGallery.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeProject() {
+            document.querySelectorAll('.project-gallery').forEach(gallery => {
+                gallery.classList.add('hidden');
+                gallery.classList.remove('active');
+            });
+            
+            // Rola a página de volta para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Função para expandir/fechar imagens
+        function expandImage(img) {
+            document.getElementById('expandedImage').src = img.src;
+            document.getElementById('imageModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
+        }
+
+        // Botão de Voltar ao Topo
+        window.onscroll = function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

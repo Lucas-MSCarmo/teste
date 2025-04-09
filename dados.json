@@ -1,0 +1,76 @@
+[
+    {
+        "nome": "Planetas",
+        "descricao": "Aplicativo multi-tela que exibe informações sobre os planetas do sistema solar. O usuário pode digitar o nome de um planeta e ver uma imagem correspondente ao planeta selecionado. O app também inclui um botão para voltar à tela inicial",
+        "link": "https://snack.expo.dev/@lucas_martins/telainput",
+        "imagem": "input",
+        "imagens": [
+            "mercurio",
+            "venus",
+            "terra",
+            "marte",
+            "jupiter",
+            "saturno",
+            "urano",
+            "netuno"
+        ],
+        "tecnicas": [
+            "Navegação de Telas: Uso de @react-navigation/stack para criar uma navegação fluida entre a tela inicial e as telas de exibição dos planetas",
+            "Validação de Entrada: Verificação se o nome do planeta digitado é válido antes de navegar para a tela de exibição",
+            "Componentização de Telas: Criação de telas independentes para cada planeta, com layout e estilos personalizados",
+            "Estilização e Tratamento de Imagens: Ajuste deimagens para garantir qualidade e consistênciavisual",
+            "Flexbox para Alinhamento de Elementos: Organização dos elementos na tela usando Flexbox",
+            "Conceitos de Experiência do Usuário: Design intuitivo e fácil de usar, com botões claros e navegação simples",
+            "Design Adaptado para Telas Menores: Layout responsivo que se adapta a dispositivos móveis",
+            "Eventos de Clique: Uso de TouchableOpacity para criar botões interativos de navegação",
+            "Efeito de Sombra em Textos: Aplicação de sombras em textos para melhorar a visibilidade e o design"
+        ],
+        "componentes": [
+            "View",
+            "Text",
+            "TextInput",
+            "TouchableOpacity",
+            "Image",
+            "ScrollView",
+            "SafeAreaView",
+            "StyleSheet",
+            "NavigationContainer"
+        ]
+    },
+    {
+        "nome": "Jogos Interativo da Choice of Games em parceria com Paradox Interactive",
+        "descricao": "Aplicativo multi-tela que apresenta uma coleção de jogos interativos, como Night Road, Out for Blood, Parliament of Knives, Sins of the Sires, The Book of Hungry Names, e The Beast of Glenkildove. Cada tela exibe o título, uma imagem e uma sinopse do jogo, permitindo ao usuário explorar detalhes e navegar entre os jogos",
+        "link": "https://snack.expo.dev/@lucas_martins/navegacaodetelas",
+        "imagem": "hub",
+        "imagens": ["nightroad","outforblood","parlamentofknives","sinsofthesires","bookofhungrynames","beastofglenkildove"],
+        "tecnicas": ["Navegação de Telas: Uso de @react-navigation/stack para criar uma navegação fluida entre as telas","Componentização de Telas: Criação de telas independentes para cada jogo, com layout e estilos personalizados","Funcionalidade de Scroll: Uso de ScrollView para permitir rolagem em telas com conteúdo extenso","Estilização e Tratamento de Imagens: Ajuste de imagens para garantir qualidade e consistência visual","Flexbox para Alinhamento de Elementos: Organização dos elementos na tela usando Flexbox","Conceitos de Experiência do Usuário: Design intuitivo e fácil de usar, com botões claros e navegação simples","Design Adaptado para Telas Menores: Layout responsivo que se adapta a dispositivos móveis","Eventos de Clique: Uso de TouchableOpacity para criar botões interativos de navegação","Efeito de Sombra em Textos: Aplicação de sombras em textos para melhorar a visibilidade e o design"],
+        "componentes": ["View","Text","TouchableOpacity","Image","ScrollView","SafeAreaView","StyleSheet","NavigationContainer"]
+    },
+    {
+        "nome": "",
+        "descricao": "",
+        "link": "",
+        "imagem": "",
+        "imagens": [],
+        "tecnicas": [""],
+        "componentes": [""]
+    },
+    {
+        "nome": "",
+        "descricao": "",
+        "link": "",
+        "imagem": "",
+        "imagens": [],
+        "tecnicas": [""],
+        "componentes": [""]
+    },
+    {
+        "nome": "",
+        "descricao": "",
+        "link": "",
+        "imagem": "",
+        "imagens": [],
+        "tecnicas": [""],
+        "componentes": [""]
+    }
+]
