@@ -42,35 +42,242 @@
         "descricao": "Aplicativo multi-tela que apresenta uma coleção de jogos interativos, como Night Road, Out for Blood, Parliament of Knives, Sins of the Sires, The Book of Hungry Names, e The Beast of Glenkildove. Cada tela exibe o título, uma imagem e uma sinopse do jogo, permitindo ao usuário explorar detalhes e navegar entre os jogos",
         "link": "https://snack.expo.dev/@lucas_martins/navegacaodetelas",
         "imagem": "hub",
-        "imagens": ["nightroad","outforblood","parlamentofknives","sinsofthesires","bookofhungrynames","beastofglenkildove"],
-        "tecnicas": ["Navegação de Telas: Uso de @react-navigation/stack para criar uma navegação fluida entre as telas","Componentização de Telas: Criação de telas independentes para cada jogo, com layout e estilos personalizados","Funcionalidade de Scroll: Uso de ScrollView para permitir rolagem em telas com conteúdo extenso","Estilização e Tratamento de Imagens: Ajuste de imagens para garantir qualidade e consistência visual","Flexbox para Alinhamento de Elementos: Organização dos elementos na tela usando Flexbox","Conceitos de Experiência do Usuário: Design intuitivo e fácil de usar, com botões claros e navegação simples","Design Adaptado para Telas Menores: Layout responsivo que se adapta a dispositivos móveis","Eventos de Clique: Uso de TouchableOpacity para criar botões interativos de navegação","Efeito de Sombra em Textos: Aplicação de sombras em textos para melhorar a visibilidade e o design"],
-        "componentes": ["View","Text","TouchableOpacity","Image","ScrollView","SafeAreaView","StyleSheet","NavigationContainer"]
+        "imagens": [
+            "nightroad",
+            "outforblood",
+            "parlamentofknives",
+            "sinsofthesires",
+            "bookofhungrynames",
+            "beastofglenkildove"
+        ],
+        "tecnicas": [
+            "Navegação de Telas: Uso de @react-navigation/stack para criar uma navegação fluida entre as telas",
+            "Componentização de Telas: Criação de telas independentes para cada jogo, com layout e estilos personalizados",
+            "Funcionalidade de Scroll: Uso de ScrollView para permitir rolagem em telas com conteúdo extenso",
+            "Estilização e Tratamento de Imagens: Ajuste de imagens para garantir qualidade e consistência visual",
+            "Flexbox para Alinhamento de Elementos: Organização dos elementos na tela usando Flexbox",
+            "Conceitos de Experiência do Usuário: Design intuitivo e fácil de usar, com botões claros e navegação simples",
+            "Design Adaptado para Telas Menores: Layout responsivo que se adapta a dispositivos móveis",
+            "Eventos de Clique: Uso de TouchableOpacity para criar botões interativos de navegação",
+            "Efeito de Sombra em Textos: Aplicação de sombras em textos para melhorar a visibilidade e o design"
+        ],
+        "componentes": [
+            "View",
+            "Text",
+            "TouchableOpacity",
+            "Image",
+            "ScrollView",
+            "SafeAreaView",
+            "StyleSheet",
+            "NavigationContainer"
+        ]
     },
     {
-        "nome": "",
-        "descricao": "",
-        "link": "",
-        "imagem": "",
-        "imagens": [],
-        "tecnicas": [""],
-        "componentes": [""]
+        "nome": "Curiosidades Interativas",
+        "descricao": "Aplicativo de cards interativos que revelam curiosidades sobre animais, geografia e história quando clicados. Cada card possui uma cor distinta e exibe seu conteúdo de forma dinâmica ao ser pressionado.",
+        "link": "https://snack.expo.dev/@lucas_martins/renderizacaocondicional",
+        "imagem": "000",
+        "imagens": [
+            "100",
+            "011",
+            "001",
+            "111"
+        ],
+        "tecnicas": [
+            "Gerenciamento de Estado: Uso de useState para controlar a exibição dinâmica do conteúdo",
+            "Componentes Interativos: Implementação de TouchableOpacity para criar áreas clicáveis",
+            "Estilização Condicional: Aplicação dinâmica de estilos baseados no estado",
+            "Layout Flexbox: Organização dos elementos na tela usando Flexbox",
+            "Design Responsivo: Adaptação a diferentes tamanhos de tela",
+            "Feedback Visual: Revelação suave do conteúdo ao usuário",
+            "Organização de Código: Separação clara entre lógica e estilos"
+        ],
+        "componentes": [
+            "View",
+            "Text",
+            "TouchableOpacity",
+            "StyleSheet",
+            "useState"
+        ]
     },
     {
-        "nome": "",
-        "descricao": "",
-        "link": "",
-        "imagem": "",
-        "imagens": [],
-        "tecnicas": [""],
-        "componentes": [""]
+        "nome": "Sistema de Cadastro Lumon Industries",
+        "descricao": "Aplicativo de formulário de cadastro com validação básica e exibição de dados confirmados. Interface dividida em seções coloridas (cabeçalho, formulário, rodapé) com design corporativo.",
+        "link": "https://snack.expo.dev/@lucas_martins/flex",
+        "imagem": "formulario",
+        "imagens": [
+            "cadastrar",
+            "cadastro"
+        ],
+        "tecnicas": [
+            "Gerenciamento de Estado com useState para múltiplos campos",
+            "Validação Básica de Formulário (campos obrigatórios)",
+            "Renderização Condicional entre formulário e confirmação",
+            "Uso de ScrollView para formulários longos",
+            "Estilização Avançada com StyleSheet e bordas temáticas",
+            "Componentização de Grupos de Input",
+            "Tipos de Teclado Específicos (numérico, email)"
+        ],
+        "componentes": [
+            "View",
+            "Text",
+            "TextInput",
+            "TouchableOpacity",
+            "ScrollView",
+            "Image",
+            "StyleSheet"
+        ]
     },
     {
-        "nome": "",
-        "descricao": "",
-        "link": "",
-        "imagem": "",
-        "imagens": [],
-        "tecnicas": [""],
-        "componentes": [""]
-    }
+        "nome": "App de Citações de Filmes",
+        "descricao": "Aplicativo que exibe citações icônicas de filmes, séries e animações com busca integrada. Cada item mostra o poster, a citação, personagem e informações do filme em um layout cartão.",
+        "link": "https://snack.expo.dev/@lucas_martins/flatlistsearch",
+        "imagem": "pesquisa",
+        "imagens": [
+            "pesquisa1",
+            "pesquisa2",
+            "pesquisa3",
+            "pesquisa4",
+            "pesquisa5"
+        ],
+        "tecnicas": [
+            "Filtragem em tempo real com useState",
+            "Renderização otimizada com FlatList",
+            "Layout em cartões com flexbox",
+            "Busca multiplataforma (citação, filme ou personagem)",
+            "Tratamento de lista vazia (ListEmptyComponent)",
+            "Carregamento de imagens remotas",
+            "Estilização responsiva para posters e textos",
+            "Organização de dados em array de objetos"
+        ],
+        "componentes": [
+            "View",
+            "Text",
+            "TextInput",
+            "FlatList",
+            "Image",
+            "StyleSheet"
+        ]
+    },
+    {
+        "nome": "Formulário de Cadastro com Seleção de Localização",
+        "descricao": "Aplicativo de formulário de cadastro com integração à API do IBGE para seleção de estados e cidades. Inclui campos para dados pessoais, endereço e dropdowns interativos para localização.",
+        "link": "https://snack.expo.dev/@lucas_martins/dropdownhard",
+        "imagem": "formulario",
+        "imagens": [
+            "estado",
+            "cidade",
+            "cadastrar",
+            "cadastro"
+        ],
+        "tecnicas": [
+            "Integração com API do IBGE (fetch estados/cidades)",
+            "Gerenciamento de estado complexo (useState, useEffect)",
+            "Dropdowns customizados com TouchableOpacity",
+            "Validação condicional de campos (cidade dependente de estado)",
+            "Layout responsivo com Flexbox",
+            "Componentização de grupos de inputs",
+            "Feedback visual (estados desabilitados)",
+            "Organização de formulário multi-etapas"
+        ],
+        "componentes": [
+            "View",
+            "Text",
+            "TextInput",
+            "TouchableOpacity",
+            "StyleSheet",
+            "Ionicons",
+            "useState",
+            "useEffect"
+        ]
+    },
+    {
+        "nome": "Formulário de Cadastro Multi-tela",
+        "descricao": "Aplicativo de cadastro com navegação entre telas, permitindo preenchimento e revisão/editção dos dados. Inclui formulário estruturado e tela de visualização/edição dos dados cadastrados.",
+        "link": "https://snack.expo.dev/@lucas_martins/passparams",
+        "imagem": "formulario",
+        "imagens": [
+            "cadastrar",
+            "cadastro",
+            "auteracao"
+        ],
+        "tecnicas": [
+            "Navegação entre telas com React Navigation",
+            "Compartilhamento de estado entre componentes via parâmetros de navegação",
+            "Renderização dinâmica de campos de formulário",
+            "Reutilização de componentes e estilos",
+            "Validação básica de campos (visual)",
+            "Layout responsivo com ScrollView",
+            "Organização de formulário em cards",
+            "Feedback visual com emojis e cores"
+        ],
+        "componentes": [
+            "View",
+            "Text",
+            "TextInput",
+            "Button",
+            "ScrollView",
+            "NavigationContainer",
+            "Stack.Navigator",
+            "useState",
+            "useEffect"
+        ]
+    },
+    {
+        "nome": "Formulário com Persistência Local",
+        "descricao": "Aplicativo de formulário com armazenamento local utilizando AsyncStorage. Permite salvar e recuperar múltiplos campos de dados persistentes entre sessões.",
+        "link": "https://snack.expo.dev/@lucas_martins/1---async-storage",
+        "imagem": "formulario",
+        "imagens": ["preencher", "recuperar"],
+        "tecnicas": [
+          "Persistência de dados com AsyncStorage",
+          "Gerenciamento de estado com useState",
+          "Renderização dinâmica de campos de formulário",
+          "Armazenamento e recuperação de múltiplos campos",
+          "Limpeza automática do formulário após salvamento",
+          "Componentização reutilizável de campos",
+          "Layout centralizado com SafeAreaView",
+          "Feedback visual através de botões coloridos"
+        ],
+        "componentes": [
+          "SafeAreaView",
+          "View",
+          "TextInput",
+          "Text",
+          "TouchableOpacity",
+          "StyleSheet",
+          "AsyncStorage",
+          "useState"
+        ]
+      },
+      {
+        "nome": "Sistema de Autenticação com Persistência de Dados",
+        "descricao": "Aplicativo com fluxo de autenticação (login/user) e armazenamento persistente de dados do usuário utilizando AsyncStorage. Inclui validação básica de credenciais e navegação entre telas.",
+        "link": "https://snack.expo.dev/@lucas_martins/2---async-storage",
+        "imagem": "login",
+        "imagens": ["test", "user", "info"],
+        "tecnicas": [
+          "Navegação entre telas com React Navigation",
+          "Autenticação básica com validação de credenciais",
+          "Persistência de dados com AsyncStorage (usuário e formulário)",
+          "Gerenciamento de estado compartilhado entre telas",
+          "Carregamento inicial de dados com useEffect",
+          "Renderização dinâmica de campos de formulário",
+          "Estilização temática consistente entre telas",
+          "Feedback visual através de mensagens personalizadas"
+        ],
+        "componentes": [
+          "NavigationContainer",
+          "Stack.Navigator",
+          "SafeAreaView",
+          "View",
+          "TextInput",
+          "Text",
+          "TouchableOpacity",
+          "StyleSheet",
+          "AsyncStorage",
+          "useState",
+          "useEffect"
+        ]
+      }
 ]
